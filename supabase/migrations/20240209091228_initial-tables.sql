@@ -218,33 +218,33 @@ grant truncate on table "public"."third_table" to "service_role";
 
 grant update on table "public"."third_table" to "service_role";
 
-create policy "Enable select for authenticated users only"
+create policy "Enable select for first user only"
 on "public"."first_table"
 as permissive
 for select
 to authenticated
-using (true);
+using (auth.email() = 'first@account.com');
 
-create policy "Enable select for authenticated users only"
+create policy "Enable select for first user only"
 on "public"."second_table"
 as permissive
 for select
 to authenticated
-using (true);
+using (auth.email() = 'first@account.com');
 
-create policy "Enable select for authenticated users only"
+create policy "Enable select for second user only"
 on "public"."third_table"
 as permissive
 for select
 to authenticated
-using (true);
+using (auth.email() = 'second@account.com');
 
-create policy "Enable select for authenticated users only"
+create policy "Enable select for second user only"
 on "public"."fourth_table"
 as permissive
 for select
 to authenticated
-using (true);
+using (auth.email() = 'second@account.com');
 
 
 

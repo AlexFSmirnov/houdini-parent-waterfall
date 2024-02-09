@@ -1,6 +1,8 @@
 import { createBrowserClient, isBrowser, parse } from '@supabase/ssr';
 import type { LayoutLoad } from './$types';
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
+import { browser } from '$app/environment';
+import { cache, setClientSession } from '$houdini';
 
 /**
  * This load function initially executes on the server, and then on the client.
@@ -39,6 +41,12 @@ export const load = (async ({ fetch, data, depends }) => {
     const {
         data: { session },
     } = await supabase.auth.getSession();
+
+    if (browser && !session) {
+        // @ts-expect-error - removing client session not supported by Houdini
+        setClientSession({});
+        cache.reset();
+    }
 
     return {
         supabase,

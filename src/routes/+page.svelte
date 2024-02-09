@@ -7,17 +7,25 @@
     const handleSignUp = () => {
         supabase.auth
             .signUp({
-                email: 'test@account.com',
+                email: 'first@account.com',
+                password: '123123',
+            })
+            .then(console.log)
+            .catch(console.error);
+
+        supabase.auth
+            .signUp({
+                email: 'second@account.com',
                 password: '123123',
             })
             .then(console.log)
             .catch(console.error);
     };
 
-    const handleSignIn = () => {
+    const handleSignIn = (account: string) => () => {
         supabase.auth
             .signInWithPassword({
-                email: 'test@account.com',
+                email: `${account}@account.com`,
                 password: '123123',
             })
             .then(console.log)
@@ -38,21 +46,28 @@
             >
         {:else}
             <button class="btn variant-outline-primary" on:click={handleSignUp}
-                >Create test account</button
+                >Create test accounts</button
             >
-            <button class="btn variant-filled-primary" on:click={handleSignIn}
-                >Sign in to test account</button
+            <button class="btn variant-filled-primary" on:click={handleSignIn('first')}
+                >Sign in to first account</button
+            >
+            <button class="btn variant-filled-primary" on:click={handleSignIn('second')}
+                >Sign in to second account</button
             >
         {/if}
     </div>
 
     <p class="mt-8 mb-1">Navigation:</p>
+    <i
+        >The tables are set up in a way that the first account only has access to the first 2
+        tables, and the second account - to the last 2 tables.</i
+    >
     <div class="flex gap-2">
         <a href="/default/second/third" class="anchor">/default/second/third</a>
         <p>- default loading (waterfall on BE and FE)</p>
     </div>
     <div class="flex gap-2">
         <a href="/with-server/second/third" class="anchor">/with-server/second/third</a>
-        <p>- <code>+layout.server.ts</code> added to each load function, removes waterfall on BE</p>
+        <p>- <code>+layout.server.ts</code> added to each load function, removes waterfalls</p>
     </div>
 </div>

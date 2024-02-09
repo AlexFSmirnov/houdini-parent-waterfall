@@ -6,6 +6,7 @@ declare global {
         interface Session extends SupabaseSession {}
         interface Locals {
             supabase: SupabaseClient;
+            session: SupabaseSession | null;
         }
         interface PageData {
             session: SupabaseSession | null;

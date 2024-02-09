@@ -14,10 +14,13 @@ export const handle: Handle = async ({ event, resolve }) => {
         },
     });
 
-    // Attaching the access token to the houdini session
     const {
         data: { session },
     } = await event.locals.supabase.auth.getSession();
+
+    event.locals.session = session;
+
+    // Attaching the access token to the houdini session
     if (session) {
         setSession(event, session);
     }
