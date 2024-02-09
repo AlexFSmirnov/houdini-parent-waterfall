@@ -1,0 +1,738 @@
+"""A high precision floating point value represented as a string"""
+scalar BigFloat
+
+"""
+Boolean expression comparing fields on type "BigFloat"
+"""
+input BigFloatFilter {
+  eq: BigFloat
+  gt: BigFloat
+  gte: BigFloat
+  in: [BigFloat!]
+  is: FilterIs
+  lt: BigFloat
+  lte: BigFloat
+  neq: BigFloat
+}
+
+"""An arbitrary size integer represented as a string"""
+scalar BigInt
+
+"""
+Boolean expression comparing fields on type "BigInt"
+"""
+input BigIntFilter {
+  eq: BigInt
+  gt: BigInt
+  gte: BigInt
+  in: [BigInt!]
+  is: FilterIs
+  lt: BigInt
+  lte: BigInt
+  neq: BigInt
+}
+
+"""
+Boolean expression comparing fields on type "Boolean"
+"""
+input BooleanFilter {
+  eq: Boolean
+  is: FilterIs
+}
+
+"""
+An opaque string using for tracking a position in results during pagination
+"""
+scalar Cursor
+
+"""A date wihout time information"""
+scalar Date
+
+"""
+Boolean expression comparing fields on type "Date"
+"""
+input DateFilter {
+  eq: Date
+  gt: Date
+  gte: Date
+  in: [Date!]
+  is: FilterIs
+  lt: Date
+  lte: Date
+  neq: Date
+}
+
+"""A date and time"""
+scalar Datetime
+
+"""
+Boolean expression comparing fields on type "Datetime"
+"""
+input DatetimeFilter {
+  eq: Datetime
+  gt: Datetime
+  gte: Datetime
+  in: [Datetime!]
+  is: FilterIs
+  lt: Datetime
+  lte: Datetime
+  neq: Datetime
+}
+
+enum FilterIs {
+  NOT_NULL
+  NULL
+}
+
+"""
+Boolean expression comparing fields on type "Float"
+"""
+input FloatFilter {
+  eq: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  is: FilterIs
+  lt: Float
+  lte: Float
+  neq: Float
+}
+
+"""
+Boolean expression comparing fields on type "ID"
+"""
+input IDFilter {
+  eq: ID
+}
+
+"""
+Boolean expression comparing fields on type "Int"
+"""
+input IntFilter {
+  eq: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  is: FilterIs
+  lt: Int
+  lte: Int
+  neq: Int
+}
+
+"""A Javascript Object Notation value serialized as a string"""
+scalar JSON
+
+"""The root type for creating and mutating data"""
+type Mutation {
+  """Deletes zero or more records from the `first_table` collection"""
+  deleteFromfirst_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: first_tableFilter
+  ): first_tableDeleteResponse!
+
+  """Deletes zero or more records from the `fourth_table` collection"""
+  deleteFromfourth_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: fourth_tableFilter
+  ): fourth_tableDeleteResponse!
+
+  """Deletes zero or more records from the `second_table` collection"""
+  deleteFromsecond_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: second_tableFilter
+  ): second_tableDeleteResponse!
+
+  """Deletes zero or more records from the `third_table` collection"""
+  deleteFromthird_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: third_tableFilter
+  ): third_tableDeleteResponse!
+
+  """Adds one or more `first_table` records to the collection"""
+  insertIntofirst_tableCollection(objects: [first_tableInsertInput!]!): first_tableInsertResponse
+
+  """Adds one or more `fourth_table` records to the collection"""
+  insertIntofourth_tableCollection(objects: [fourth_tableInsertInput!]!): fourth_tableInsertResponse
+
+  """Adds one or more `second_table` records to the collection"""
+  insertIntosecond_tableCollection(objects: [second_tableInsertInput!]!): second_tableInsertResponse
+
+  """Adds one or more `third_table` records to the collection"""
+  insertIntothird_tableCollection(objects: [third_tableInsertInput!]!): third_tableInsertResponse
+
+  """Updates zero or more records in the `first_table` collection"""
+  updatefirst_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: first_tableFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: first_tableUpdateInput!
+  ): first_tableUpdateResponse!
+
+  """Updates zero or more records in the `fourth_table` collection"""
+  updatefourth_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: fourth_tableFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: fourth_tableUpdateInput!
+  ): fourth_tableUpdateResponse!
+
+  """Updates zero or more records in the `second_table` collection"""
+  updatesecond_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: second_tableFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: second_tableUpdateInput!
+  ): second_tableUpdateResponse!
+
+  """Updates zero or more records in the `third_table` collection"""
+  updatethird_tableCollection(
+    """
+    The maximum number of records in the collection permitted to be affected
+    """
+    atMost: Int! = 1
+
+    """Restricts the mutation's impact to records matching the criteria"""
+    filter: third_tableFilter
+
+    """
+    Fields that are set will be updated for all records matching the `filter`
+    """
+    set: third_tableUpdateInput!
+  ): third_tableUpdateResponse!
+}
+
+interface Node {
+  """Retrieves a record by `ID`"""
+  nodeId: ID!
+}
+
+"""Any type not handled by the type system"""
+scalar Opaque
+
+"""
+Boolean expression comparing fields on type "Opaque"
+"""
+input OpaqueFilter {
+  eq: Opaque
+  is: FilterIs
+}
+
+"""Defines a per-field sorting order"""
+enum OrderByDirection {
+  """Ascending order, nulls first"""
+  AscNullsFirst
+
+  """Ascending order, nulls last"""
+  AscNullsLast
+
+  """Descending order, nulls first"""
+  DescNullsFirst
+
+  """Descending order, nulls last"""
+  DescNullsLast
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+"""The root type for querying data"""
+type Query {
+  """A pagable collection of type `first_table`"""
+  first_tableCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: first_tableFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [first_tableOrderBy!]
+  ): first_tableConnection
+
+  """A pagable collection of type `fourth_table`"""
+  fourth_tableCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: fourth_tableFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [fourth_tableOrderBy!]
+  ): fourth_tableConnection
+
+  """Retrieve a record by its `ID`"""
+  node(
+    """The record's `ID`"""
+    nodeId: ID!
+  ): Node
+
+  """A pagable collection of type `second_table`"""
+  second_tableCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: second_tableFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [second_tableOrderBy!]
+  ): second_tableConnection
+
+  """A pagable collection of type `third_table`"""
+  third_tableCollection(
+    """Query values in the collection after the provided cursor"""
+    after: Cursor
+
+    """Query values in the collection before the provided cursor"""
+    before: Cursor
+
+    """Filters to apply to the results set when querying from the collection"""
+    filter: third_tableFilter
+
+    """Query the first `n` records in the collection"""
+    first: Int
+
+    """Query the last `n` records in the collection"""
+    last: Int
+
+    """Sort order to apply to the collection"""
+    orderBy: [third_tableOrderBy!]
+  ): third_tableConnection
+}
+
+"""
+Boolean expression comparing fields on type "String"
+"""
+input StringFilter {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  in: [String!]
+  iregex: String
+  is: FilterIs
+  like: String
+  lt: String
+  lte: String
+  neq: String
+  regex: String
+  startsWith: String
+}
+
+"""A time without date information"""
+scalar Time
+
+"""
+Boolean expression comparing fields on type "Time"
+"""
+input TimeFilter {
+  eq: Time
+  gt: Time
+  gte: Time
+  in: [Time!]
+  is: FilterIs
+  lt: Time
+  lte: Time
+  neq: Time
+}
+
+"""A universally unique identifier"""
+scalar UUID
+
+"""
+Boolean expression comparing fields on type "UUID"
+"""
+input UUIDFilter {
+  eq: UUID
+  in: [UUID!]
+  is: FilterIs
+  neq: UUID
+}
+
+type first_table implements Node {
+  created_at: Datetime!
+  id: BigInt!
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+}
+
+type first_tableConnection {
+  edges: [first_tableEdge!]!
+  pageInfo: PageInfo!
+}
+
+type first_tableDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [first_table!]!
+}
+
+type first_tableEdge {
+  cursor: String!
+  node: first_table!
+}
+
+input first_tableFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [first_tableFilter!]
+  created_at: DatetimeFilter
+  id: BigIntFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: first_tableFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [first_tableFilter!]
+}
+
+input first_tableInsertInput {
+  created_at: Datetime
+  name: String
+}
+
+type first_tableInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [first_table!]!
+}
+
+input first_tableOrderBy {
+  created_at: OrderByDirection
+  id: OrderByDirection
+  name: OrderByDirection
+}
+
+input first_tableUpdateInput {
+  created_at: Datetime
+  name: String
+}
+
+type first_tableUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [first_table!]!
+}
+
+type fourth_table implements Node {
+  created_at: Datetime!
+  id: BigInt!
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+}
+
+type fourth_tableConnection {
+  edges: [fourth_tableEdge!]!
+  pageInfo: PageInfo!
+}
+
+type fourth_tableDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [fourth_table!]!
+}
+
+type fourth_tableEdge {
+  cursor: String!
+  node: fourth_table!
+}
+
+input fourth_tableFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [fourth_tableFilter!]
+  created_at: DatetimeFilter
+  id: BigIntFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: fourth_tableFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [fourth_tableFilter!]
+}
+
+input fourth_tableInsertInput {
+  created_at: Datetime
+  name: String
+}
+
+type fourth_tableInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [fourth_table!]!
+}
+
+input fourth_tableOrderBy {
+  created_at: OrderByDirection
+  id: OrderByDirection
+  name: OrderByDirection
+}
+
+input fourth_tableUpdateInput {
+  created_at: Datetime
+  name: String
+}
+
+type fourth_tableUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [fourth_table!]!
+}
+
+type second_table implements Node {
+  created_at: Datetime!
+  id: BigInt!
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+}
+
+type second_tableConnection {
+  edges: [second_tableEdge!]!
+  pageInfo: PageInfo!
+}
+
+type second_tableDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [second_table!]!
+}
+
+type second_tableEdge {
+  cursor: String!
+  node: second_table!
+}
+
+input second_tableFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [second_tableFilter!]
+  created_at: DatetimeFilter
+  id: BigIntFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: second_tableFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [second_tableFilter!]
+}
+
+input second_tableInsertInput {
+  created_at: Datetime
+  name: String
+}
+
+type second_tableInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [second_table!]!
+}
+
+input second_tableOrderBy {
+  created_at: OrderByDirection
+  id: OrderByDirection
+  name: OrderByDirection
+}
+
+input second_tableUpdateInput {
+  created_at: Datetime
+  name: String
+}
+
+type second_tableUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [second_table!]!
+}
+
+type third_table implements Node {
+  created_at: Datetime!
+  id: BigInt!
+  name: String!
+
+  """Globally Unique Record Identifier"""
+  nodeId: ID!
+}
+
+type third_tableConnection {
+  edges: [third_tableEdge!]!
+  pageInfo: PageInfo!
+}
+
+type third_tableDeleteResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [third_table!]!
+}
+
+type third_tableEdge {
+  cursor: String!
+  node: third_table!
+}
+
+input third_tableFilter {
+  """
+  Returns true only if all its inner filters are true, otherwise returns false
+  """
+  and: [third_tableFilter!]
+  created_at: DatetimeFilter
+  id: BigIntFilter
+  name: StringFilter
+  nodeId: IDFilter
+
+  """Negates a filter"""
+  not: third_tableFilter
+
+  """
+  Returns true if at least one of its inner filters is true, otherwise returns false
+  """
+  or: [third_tableFilter!]
+}
+
+input third_tableInsertInput {
+  created_at: Datetime
+  name: String
+}
+
+type third_tableInsertResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [third_table!]!
+}
+
+input third_tableOrderBy {
+  created_at: OrderByDirection
+  id: OrderByDirection
+  name: OrderByDirection
+}
+
+input third_tableUpdateInput {
+  created_at: Datetime
+  name: String
+}
+
+type third_tableUpdateResponse {
+  """Count of the records impacted by the mutation"""
+  affectedCount: Int!
+
+  """Array of records impacted by the mutation"""
+  records: [third_table!]!
+}
